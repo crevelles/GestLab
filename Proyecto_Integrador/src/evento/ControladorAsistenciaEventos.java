@@ -13,6 +13,7 @@ import evento.Evento;
 
 public class ControladorAsistenciaEventos implements ActionListener{
 
+	//Autor
 	VistaEventosRegistrados vEv;
 	ArrayList<Evento> eventos = new ArrayList<>();
 	ArrayList<Evento> eventosR = new ArrayList<>();
