@@ -25,6 +25,7 @@ import java.awt.Rectangle;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.border.LineBorder;
 
 public class Vportada extends JFrame {
 
@@ -62,7 +63,7 @@ public class Vportada extends JFrame {
 		JLabel label = new JLabel("Wellcome - Bienvenido - Hallo - Bonjour");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setForeground(new Color(25, 25, 112));
-		label.setFont(new Font("Levenim MT", Font.PLAIN, 31));
+		label.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 31));
 		label.setBounds(0, 65, 914, 32);
 		contentPane.add(label);
 		
@@ -95,7 +96,7 @@ public class Vportada extends JFrame {
 		btnAcceder.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAcceder.setForeground(SystemColor.textHighlight);
 		btnAcceder.setFont(new Font("Levenim MT", Font.PLAIN, 12));
-		btnAcceder.setBorder(UIManager.getBorder("Button.border"));
+		btnAcceder.setBorder(new LineBorder(new Color(100, 149, 237), 2, true));
 		btnAcceder.setBackground(Color.WHITE);
 		btnAcceder.setBounds(27, 448, 101, 21);
 		contentPane.add(btnAcceder);

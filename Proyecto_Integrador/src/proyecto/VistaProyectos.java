@@ -30,7 +30,7 @@ public class VistaProyectos extends JFrame {
 	public JButton btnNuevo;
 	public JButton btnEliminar;
 	public JScrollPane scrollPane;
-	public JButton btnConsultar;
+	public JButton btnAsistencia;
 	public JTextField textCod;
 	public JTextField textNombre;
 	public JTextField textDesc;
@@ -110,12 +110,12 @@ public class VistaProyectos extends JFrame {
 		btnEliminar.setBounds(717, 391, 196, 25);
 		contentPane.add(btnEliminar);
 		
-		btnConsultar = new JButton("Consultar\r\n");
-		btnConsultar.setForeground(new Color(255, 255, 255));
-		btnConsultar.setFont(new Font("Levenim MT", Font.PLAIN, 14));
-		btnConsultar.setBackground(new Color(255, 215, 0));
-		btnConsultar.setBounds(717, 355, 197, 25);
-		contentPane.add(btnConsultar);
+		btnAsistencia = new JButton("Asistencia");
+		btnAsistencia.setForeground(new Color(255, 255, 255));
+		btnAsistencia.setFont(new Font("Levenim MT", Font.PLAIN, 14));
+		btnAsistencia.setBackground(new Color(255, 215, 0));
+		btnAsistencia.setBounds(717, 355, 197, 25);
+		contentPane.add(btnAsistencia);
 		
 		lblCodigo = new JLabel("Codigo:");
 		lblCodigo.setForeground(Color.LIGHT_GRAY);
@@ -215,7 +215,7 @@ public class VistaProyectos extends JFrame {
 		
 			btnEliminar.addActionListener(c);
 			btnSalirr.addActionListener(c);
-			btnConsultar.addActionListener(c);
+			btnAsistencia.addActionListener(c);
 			table.addMouseListener(c);
 			btnRegistrar.addActionListener(c);
 			btnLimpiar.addActionListener(c);

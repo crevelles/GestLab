@@ -161,5 +161,30 @@ public class GestionBBDD_Usuarios {
 		
 		return n;
 	}
+
+
+	public void consultarUsuariosEnProyectos(int codigoProyecto, ArrayList<Usuario> usuarios) {
+		try {
+			Statement stmt = conexion.createStatement();
+			String select = "SELECT *FROM USUARIO, PROYECTO, PLANIFICA "
+					+ "WHERE USUARIO.CODIGO_USUARIO = PLANIFICA.CODIGO_USUARIO AND "
+					+ "PROYECTO.CODIGO_PROYECTO = PLANIFICA.CODIGO_PROYECTO AND PROYECTO.CODIGO_PROYECTO="+codigoProyecto;
+			System.out.println(select);
+			ResultSet rset = stmt.executeQuery(select);
+			while(rset.next()){
+				Usuario u = new Usuario();
+				u.setNombre_usuario(rset.getString("NOMBRE_USUARIO"));
+				u.setApellidos(rset.getString("APELLIDOS"));
+				u.setMail(rset.getString("MAIL"));
+				usuarios.add(u);
+			}
+			rset.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 }

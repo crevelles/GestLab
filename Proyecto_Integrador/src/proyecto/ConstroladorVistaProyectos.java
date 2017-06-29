@@ -60,30 +60,32 @@ public class ConstroladorVistaProyectos implements ActionListener, MouseListener
 		
 		if(o == vp.btnSalirr){
 			vp.dispose();
-		}
-		if(o == vp.btnNuevo){
+		} else if(o == vp.btnNuevo){
 			pideNuevo();
-		}
-		if(o == vp.btnRegistrar){
+		} else if(o == vp.btnRegistrar){
 			registrarNuevo();
-		}
-		if(o == vp.btnLimpiar) {
+		} else if(o == vp.btnLimpiar) {
 			limpiarCampos();
-		}
-		if(o == vp.btnConsultar || o == vp.btnBuscar){
-			consulta();
-		}
-		if(o == vp.btnEliminar){
+		} else if(o == vp.btnEliminar){
 			modificaVentana();
 			elimnarProyecto();
-		}
-		if(o == vp.btnBorrar){
+		} else if(o == vp.btnBorrar){
 			confirmaElimina();
+		} else if (o == vp.btnAsistencia){
+			abreAsistencia();
 		}
 		
 	}
 	
 	
+	private void abreAsistencia() {
+		VistaUsuariosProyectos vup = new VistaUsuariosProyectos();
+		ConstroladorVistaUsuariosProyectos c = new ConstroladorVistaUsuariosProyectos(vup, bbdd);
+		vup.setControlador(c);
+		vup.setVisible(true);
+		
+	}
+
 	private void confirmaElimina(){
 		int codP = Integer.parseInt(vp.textCod.getText());
 		int fila = vp.table.getSelectedRow();
