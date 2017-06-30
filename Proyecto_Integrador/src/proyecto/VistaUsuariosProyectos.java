@@ -30,6 +30,7 @@ public class VistaUsuariosProyectos extends JFrame {
 	JTable table;
 	JButton btnSalir;
 	JButton btnBaja;
+	JLabel lblNmeroDeUsuarios;
 
 	public VistaUsuariosProyectos() {
 		setUndecorated(true);
@@ -74,7 +75,7 @@ public class VistaUsuariosProyectos extends JFrame {
 		contentPane.add(btnConsultarUsuProyectos);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 229, 894, 219);
+		scrollPane.setBounds(20, 229, 896, 198);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -118,6 +119,12 @@ public class VistaUsuariosProyectos extends JFrame {
 		btnBaja = new JButton("BAJA");
 		btnBaja.setBounds(512, 460, 103, 23);
 		contentPane.add(btnBaja);
+		
+		lblNmeroDeUsuarios = new JLabel("N\u00FAmero de usuarios que conforman el proyecto: ");
+		lblNmeroDeUsuarios.setForeground(new Color(100, 149, 237));
+		lblNmeroDeUsuarios.setFont(new Font("Leelawadee UI Semilight", Font.PLAIN, 16));
+		lblNmeroDeUsuarios.setBounds(20, 427, 378, 32);
+		contentPane.add(lblNmeroDeUsuarios);
 	}
 		public void setControlador(ConstroladorVistaUsuariosProyectos c){
 			btnBaja.addActionListener(c);

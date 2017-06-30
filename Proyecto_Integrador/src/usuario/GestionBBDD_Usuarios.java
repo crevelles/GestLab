@@ -176,6 +176,8 @@ public class GestionBBDD_Usuarios {
 				u.setNombre_usuario(rset.getString("NOMBRE_USUARIO"));
 				u.setApellidos(rset.getString("APELLIDOS"));
 				u.setMail(rset.getString("MAIL"));
+				u.setTipo_usuario(rset.getString("TIPO_USUARIO"));
+				u.setTelefono(rset.getString("TELEFONO"));
 				usuarios.add(u);
 			}
 			rset.close();

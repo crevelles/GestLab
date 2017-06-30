@@ -130,7 +130,36 @@ public class Gestion_BBDD_Proyectos {
 		}
 		return false;
 	}
-	
+
+	public void registrarUsuarioEnProyecto(int codigoUsuario, int codigoProyecto) {
+		try {
+			Statement stmt = conexion.createStatement();
+			String insert = "INSERT INTO PLANIFICA VALUES("+codigoUsuario+","+codigoProyecto+")";
+			System.out.println(insert);
+			stmt.executeQuery(insert);
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public boolean compruebaUsuarioEnProyecto(int codigoUsuario, int codigoProyecto) {
+		try {
+			Statement stmt = conexion.createStatement();
+			String select = "SELECT *FROM PLANIFICA WHERE CODIGO_USUARIO = " + codigoUsuario + " AND CODIGO_PROYECTO = " + codigoProyecto;
+			ResultSet rset = stmt.executeQuery(select);
+			if(rset.next()){
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
 
 	

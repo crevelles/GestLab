@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import OracleAcceso.AccesoOracle;
@@ -59,9 +60,29 @@ public class ConstroladorVistaUsuariosProyectos implements ActionListener{
 			vup.dispose();
 		} else if(o == vup.btnConsultarUsuProyectos){
 			consultarUsuariosProyectos();
+		} else if(o == vup.btnRegistrar){
+			registrarUsuarioEnProyecto();
 		}
 		
 	}
+
+
+	private void registrarUsuarioEnProyecto() {
+		int codigoUsuario  = vup.comboUsuarios.getSelectedIndex();
+		int codigoProyecto = vup.comboProyectos.getSelectedIndex();
+		if(gBBDD.compruebaUsuarioEnProyecto(codigoUsuario+1, codigoProyecto+1)){
+			JOptionPane.showMessageDialog(null, "El usuario " + usuarios.get(codigoUsuario).getNombre_usuario() 
+					+ " "+ usuarios.get(codigoUsuario).getApellidos() + " ya está registrado en el proyecto");
+		} else {
+			gBBDD.registrarUsuarioEnProyecto(codigoUsuario+1,codigoProyecto+1);
+			JOptionPane.showMessageDialog(null, "El usuario " + usuarios.get(codigoUsuario).getNombre_usuario() 
+					+ " "+ usuarios.get(codigoUsuario).getApellidos() + " se ha registrado en el proyecto " + proyectos.get(codigoProyecto).getNombre_proyecto());
+			consultarUsuariosProyectos();
+		}
+		
+		
+	}
+
 
 
 	private void limpiar() {
@@ -76,6 +97,7 @@ public class ConstroladorVistaUsuariosProyectos implements ActionListener{
 	}
 
 	private void consultarUsuariosProyectos() {
+		int contador = 0;
 		limpiar();
 		int codigoProyecto = vup.comboProyectos.getSelectedIndex()+1;
 		ArrayList<Usuario> usu = new ArrayList<Usuario>();
@@ -85,10 +107,13 @@ public class ConstroladorVistaUsuariosProyectos implements ActionListener{
 			tabla.addRow(new Object[]{
 				usuario.getNombre_usuario(),
 				usuario.getApellidos(),
-				usuario.getMail()	
+				usuario.getMail(),
+				usuario.getTipo_usuario(),
+				usuario.getTelefono()
 			});
-			
+			contador++;
 		}
+		vup.lblNmeroDeUsuarios.setText("Número de usuarios que forman el proyecto " + contador);
 	}
 
 }
